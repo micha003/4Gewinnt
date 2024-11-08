@@ -1,0 +1,63 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.17 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.17">
+  <diagram name="GUI-Overview" id="YGbXajIDDYB2tb9MRYoI">
+    <mxGraphModel dx="1434" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="0RzWWj-mARCAkLwIQcm_-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="0RzWWj-mARCAkLwIQcm_-2" target="0RzWWj-mARCAkLwIQcm_-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0RzWWj-mARCAkLwIQcm_-5" value="generiert" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="0RzWWj-mARCAkLwIQcm_-4">
+          <mxGeometry x="-0.0857" y="3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0RzWWj-mARCAkLwIQcm_-2" value="Main-GUI" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="210" y="310" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="0RzWWj-mARCAkLwIQcm_-6" value="2 Spieler" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="0RzWWj-mARCAkLwIQcm_-2">
+          <mxGeometry x="45" y="50" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0RzWWj-mARCAkLwIQcm_-7" value="gegen KI" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="0RzWWj-mARCAkLwIQcm_-2">
+          <mxGeometry x="45" y="120" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0RzWWj-mARCAkLwIQcm_-3" value="Spiel" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="610" y="190" width="490" height="440" as="geometry" />
+        </mxCell>
+        <mxCell id="0RzWWj-mARCAkLwIQcm_-9" value="" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillWeight=4;hachureGap=8;hachureAngle=45;fillColor=#1ba1e2;sketch=1;" vertex="1" parent="0RzWWj-mARCAkLwIQcm_-3">
+          <mxGeometry x="65" y="190" width="360" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="0RzWWj-mARCAkLwIQcm_-11" value="Spielfeld" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="0RzWWj-mARCAkLwIQcm_-3">
+          <mxGeometry x="215" y="390" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="0RzWWj-mARCAkLwIQcm_-14" value="Button" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="0RzWWj-mARCAkLwIQcm_-3">
+          <mxGeometry x="70" y="140" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0RzWWj-mARCAkLwIQcm_-13" value="Button" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="0RzWWj-mARCAkLwIQcm_-3">
+          <mxGeometry x="130" y="140" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0RzWWj-mARCAkLwIQcm_-12" value="Button" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="0RzWWj-mARCAkLwIQcm_-3">
+          <mxGeometry x="180" y="140" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0RzWWj-mARCAkLwIQcm_-19" value="Button" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="0RzWWj-mARCAkLwIQcm_-3">
+          <mxGeometry x="380" y="140" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0RzWWj-mARCAkLwIQcm_-18" value="Button" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="0RzWWj-mARCAkLwIQcm_-3">
+          <mxGeometry x="330" y="140" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0RzWWj-mARCAkLwIQcm_-17" value="Button" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="0RzWWj-mARCAkLwIQcm_-3">
+          <mxGeometry x="275" y="140" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0RzWWj-mARCAkLwIQcm_-16" value="Button" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="0RzWWj-mARCAkLwIQcm_-3">
+          <mxGeometry x="230" y="140" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0RzWWj-mARCAkLwIQcm_-21" value="[Button pro Spalte]" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="0RzWWj-mARCAkLwIQcm_-3">
+          <mxGeometry x="165" y="90" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="0RzWWj-mARCAkLwIQcm_-22" value="Anzeige, wer am Zug ist" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="0RzWWj-mARCAkLwIQcm_-3">
+          <mxGeometry x="40" y="40" width="100" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
