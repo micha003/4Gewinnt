@@ -5,7 +5,7 @@ from tkinter import *
 class Game:
     def __init__(self, gt):
         self.game_window = Tk()
-        self.game_window.geometry("800x800")
+        self.game_window.geometry("850x800")
         self.current_player = 1  # Spieler 1 beginnt
         self.game_over = False
 
@@ -32,7 +32,7 @@ class Game:
         self.current_player_label = Label(
             self.game_window, text=f"Spieler {self.current_player} ist am Zug"
         )
-        self.current_player_label.grid(row=0, column=0, columnspan=7)
+        self.current_player_label.grid(row=0, column=7, columnspan=7)
 
         self.canvas = Canvas(
             self.game_window,
@@ -56,7 +56,7 @@ class Game:
 
     def drop_piece(self, col):
         if self.game_over:
-            return
+            print("hhellp")
 
         # Finde die nächste freie Zeile in der gewählten Spalte
         for row in range(5, -1, -1):
