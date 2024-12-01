@@ -3,6 +3,7 @@
 # Imports von Packages
 from tkinter import *
 from tkinter import font
+from game import Game
 
 # Fenster erstellen
 main_window = Tk()
@@ -16,7 +17,14 @@ BUTTON = font.Font(family="Arial", size=12)
 
 # Elemente erstellen
 title_main_window = Label(main_window, text="4 gewinnnt!", font=TITLE)
-option_game_multiplayer = Button(main_window, text="Mehrspieler", width=12, height=2, font=BUTTON)
+option_game_multiplayer = Button(
+    main_window,
+    text="2 Spieler",
+    width=12,
+    height=2,
+    font=BUTTON,
+    command=lambda: Game(2).start_game,
+)
 
 # Elemente platzieren
 title_main_window.pack(pady=10)
