@@ -23,12 +23,23 @@ option_game_multiplayer = Button(
     width=12,
     height=2,
     font=BUTTON,
-    command=lambda: Game(2).start_game,
+    command=lambda: Game(2),
 )
+
+option_game_singleplayer = Button(
+    main_window,
+    text="Einzelspieler",
+    width=12,
+    height=2,
+    font=BUTTON,
+    command=lambda: Game(1),
+)
+
 
 # Elemente platzieren
 title_main_window.pack(pady=10)
 option_game_multiplayer.pack()
+option_game_singleplayer.pack()
 
 
 # MAINLOOP

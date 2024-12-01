@@ -1,4 +1,6 @@
 from tkinter import *
+from tkinter.messagebox import showinfo
+import random
 
 
 # gt = gametype 1 [against computer] oder 2 [Mehrspieler]
@@ -8,8 +10,9 @@ class Game:
         self.game_window.geometry("850x800")
         self.current_player = 1  # Spieler 1 beginnt
         self.game_over = False
+        self.gt = gt
 
-        if gt == 1:
+        if self.gt == 1:
             self.game_window.title("Gegen Computer - Spiel")
         else:
             self.game_window.title("Mehrspieler - Spiel")
@@ -55,8 +58,10 @@ class Game:
                 )
 
     def drop_piece(self, col):
-        if self.game_over:
-            print("hhellp")
+        # wenn zeile voll
+        if self.board[col][0] != 0:
+            showinfo("Fehler", "Diese Spalte ist bereits voll!")
+            return
 
         # Finde die nächste freie Zeile in der gewählten Spalte
         for row in range(5, -1, -1):
@@ -65,7 +70,12 @@ class Game:
                 self.draw_piece(col, row)
                 if self.check_winner(col, row):
                     print(f"Spieler {self.current_player} hat gewonnen!")
-                    self.game_over = True
+                    showinfo(
+                        "Game Over",
+                        f"Das Spiel ist vorbei! Spieler {self.current_player} hat gewonnen.",
+                    )
+                    self.game_window.destroy()
+                    return
                 self.current_player = (
                     2 if self.current_player == 1 else 1
                 )  # Wechseln des Spielers
@@ -73,6 +83,15 @@ class Game:
                     text=f"Spieler {self.current_player} ist am Zug"
                 )
                 break
+
+        if self.gt == 1 and self.current_player == 2:
+            column = random.choice([col for col in range(7) if self.board[col][0] == 0])
+            self.drop_piece(column)
+
+        if all(self.board[col][0] != 0 for col in range(7)):
+            print("Unentschieden!")
+            showinfo("Game Over", "Das Spiel ist unentschieden.")
+            self.game_window.destroy()
 
     def draw_piece(self, col, row):
         x1 = col * self.cell_width
@@ -87,39 +106,25 @@ class Game:
         return (
             self.check_direction(col, row, 1, 0)  # horizontal
             or self.check_direction(col, row, 0, 1)  # vertikal
-            or self.check_direction(col, row, 1, 1)  # diagonal /
-            or self.check_direction(col, row, 1, -1)
-        )  # diagonal \
+            or self.check_direction(col, row, 1, 1)  # diagonal
+            or self.check_direction(col, row, 1, -1)  # diagonal
+        )
 
     def check_direction(self, col, row, delta_col, delta_row):
-        count = 1  # Zähle den aktuellen Stein
+        count = 0  # Zähle den aktuellen Stein
 
         # Überprüfen in positiver Richtung
-        for i in range(1, 4):
+        for i in range(-3, 4, 1):
             new_col = col + i * delta_col
             new_row = row + i * delta_row
-            if (
-                0 <= new_col < 7
-                and 0 <= new_row < 6
-                and self.board[new_col][new_row] == self.current_player
-            ):
-                count += 1
-            else:
-                break
-
-        # Überprüfen in negativer Richtung
-        for i in range(1, 4):
-            new_col = col - i * delta_col
-            new_row = row - i * delta_row
-
-            if (
-                0 <= new_col < 7
-                and 0 <= new_row < 6
-                and self.board[new_col][new_row] == self.current_player
-            ):
-                count += 1
-            else:
-                break
+            if 0 <= new_col < 7 and 0 <= new_row < 6:
+                if self.board[new_col][new_row] == self.current_player:
+                    count += 1
+                    if count >= 4:
+                        return True
+                else:
+                    count = 0
+        return False
 
     def __repr__(self) -> str:
         return f"{self.board}"
