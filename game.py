@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter.messagebox import showinfo
+from tkinter.ttk import Combobox
 import random
 
 
@@ -12,12 +13,51 @@ class Game:
         self.game_over = False
         self.gt = gt
 
+        # Farbwahl
+        self.color_window = Tk()
+        self.color_window.geometry("500x200")
+        self.color_window.overrideredirect(True)
+        self.color_window_label = Label(
+            self.color_window, text="Bitte wähle die Farben!"
+        )
+
+        self.colors = ["red", "yellow", "blue", "green"]
+
+        self.color_window_label_1 = Label(self.color_window, text="Spieler 1")
+        self.color_window_label_2 = Label(self.color_window, text="Spieler 2")
+
+        self.drop1 = Combobox(self.color_window, values=self.colors)
+        self.drop2 = Combobox(self.color_window, values=self.colors)
+
+        self.OK_button = Button(
+            self.color_window,
+            text="OK",
+            command=lambda: self.check_colors(
+                color1=self.drop1.get(), color2=self.drop2.get()
+            ),
+        )
+
+        self.color_window_label.grid(column=1, row=0)
+        self.color_window_label_1.grid(column=0, row=1)
+        self.color_window_label_2.grid(column=2, row=1)
+        self.drop1.grid(column=0, row=2)
+        self.drop2.grid(column=2, row=2)
+        self.OK_button.grid(column=1, row=3)
+
         if self.gt == 1:
             self.game_window.title("Gegen Computer - Spiel")
         else:
             self.game_window.title("Mehrspieler - Spiel")
 
         self.drawBoard()
+
+    def check_colors(self, color1, color2):
+        if color1 == color2:
+            return
+        else:
+            self.color_player1 = color1
+            self.color_player2 = color2
+            self.color_window.destroy()
 
     def drawBoard(self):
         self.board = [[0 for _ in range(6)] for _ in range(7)]  # 7 Spalten, 6 Reihen
@@ -98,7 +138,7 @@ class Game:
         y1 = row * self.cell_height + 50
         x2 = x1 + self.cell_width
         y2 = y1 + self.cell_height
-        color = "red" if self.current_player == 1 else "yellow"
+        color = self.color_player1 if self.current_player == 1 else self.color_player2
         self.canvas.create_oval(x1, y1, x2, y2, fill=color)
 
     def check_winner(self, col, row):
@@ -131,6 +171,6 @@ class Game:
 
 
 if __name__ == "__main__":
-    game = Game(2)  # Erstelle eine Instanz von GameWindow
+    game = Game(1)  # Erstelle eine Instanz von GameWindow
     print(game)  # Gibt die Darstellung des Boards aus
     game.game_window.mainloop()  # Starte die Tkinter-Hauptschleife
