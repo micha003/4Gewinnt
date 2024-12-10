@@ -16,7 +16,7 @@ class Game:
         # Farbwahl
         self.color_window = Tk()
         self.color_window.geometry("500x200")
-        self.color_window.overrideredirect(True)
+        # self.color_window.overrideredirect(True)
         self.color_window_label = Label(
             self.color_window, text="Bitte wähle die Farben!"
         )
