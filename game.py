@@ -16,7 +16,6 @@ class Game:
         # Farbwahl
         self.color_window = Tk()
         self.color_window.geometry("500x200")
-        # self.color_window.overrideredirect(True)
         self.color_window_label = Label(
             self.color_window, text="Bitte wähle die Farben!"
         )
@@ -170,6 +169,7 @@ class Game:
         return f"{self.board}"
 
 
+# Test, wird nur ausgeführt, wenn game.py direkt aufgerufen wird
 if __name__ == "__main__":
     game = Game(1)  # Erstelle eine Instanz von GameWindow
     print(game)  # Gibt die Darstellung des Boards aus
